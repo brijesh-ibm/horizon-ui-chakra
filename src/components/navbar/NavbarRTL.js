@@ -35,7 +35,7 @@ export default function AdminNavbar(props) {
   let navbarShadow = "none";
   let navbarBg = useColorModeValue(
     "rgba(244, 247, 254, 0.2)",
-    "rgba(11,20,55,0.5)"
+    "rgba(11,20,55,0.5)",
   );
   let navbarBorder = "transparent";
   let secondaryMargin = "0px";
@@ -57,23 +57,23 @@ export default function AdminNavbar(props) {
       borderColor={navbarBorder}
       filter={navbarFilter}
       backdropFilter={navbarBackdrop}
-      backgroundPosition='center'
-      backgroundSize='cover'
-      borderRadius='16px'
-      borderWidth='1.5px'
-      borderStyle='solid'
-      transitionDelay='0s, 0s, 0s, 0s'
-      transitionDuration=' 0.25s, 0.25s, 0.25s, 0s'
-      transition-property='box-shadow, background-color, filter, border'
-      transitionTimingFunction='linear, linear, linear, linear'
+      backgroundPosition="center"
+      backgroundSize="cover"
+      borderRadius="16px"
+      borderWidth="1.5px"
+      borderStyle="solid"
+      transitionDelay="0s, 0s, 0s, 0s"
+      transitionDuration=" 0.25s, 0.25s, 0.25s, 0s"
+      transition-property="box-shadow, background-color, filter, border"
+      transitionTimingFunction="linear, linear, linear, linear"
       alignItems={{ xl: "center" }}
       display={secondary ? "block" : "flex"}
-      minH='75px'
+      minH="75px"
       justifyContent={{ xl: "center" }}
-      lineHeight='25.6px'
-      mx='auto'
+      lineHeight="25.6px"
+      mx="auto"
       mt={secondaryMargin}
-      pb='8px'
+      pb="8px"
       left={{ base: "12px", md: "30px", lg: "30px", xl: "30px" }}
       px={{
         sm: paddingX,
@@ -82,7 +82,7 @@ export default function AdminNavbar(props) {
       ps={{
         xl: "12px",
       }}
-      pt='8px'
+      pt="8px"
       top={{ base: "12px", md: "16px", xl: "18px" }}
       w={{
         base: "calc(100vw - 6%)",
@@ -90,8 +90,29 @@ export default function AdminNavbar(props) {
         lg: "calc(100vw - 6%)",
         xl: "calc(100vw - 350px)",
         "2xl": "calc(100vw - 365px)",
-      }}>
-      <Flex
+      }}
+    >
+      <Link
+        color={mainText}
+        href="#"
+        bg="inherit"
+        marginLeft={200}
+        borderRadius="inherit"
+        fontWeight="bold"
+        fontSize="34px"
+        _hover={{ color: { mainText } }}
+        _active={{
+          bg: "inherit",
+          transform: "none",
+          borderColor: "transparent",
+        }}
+        _focus={{
+          boxShadow: "none",
+        }}
+      >
+        {brandText}
+      </Link>
+      {/* <Flex
         w='100%'
         flexDirection={{
           sm: "column",
@@ -113,7 +134,7 @@ export default function AdminNavbar(props) {
               </BreadcrumbLink>
             </BreadcrumbItem>
           </Breadcrumb>
-          {/* Here we create navbar brand, based on route name */}
+          // Here we create navbar brand, based on route name 
           <Link
             color={mainText}
             href='#'
@@ -142,8 +163,8 @@ export default function AdminNavbar(props) {
             scrolled={scrolled}
           />
         </Box>
-      </Flex>
-      {secondary ? <Text color='white'>{message}</Text> : null}
+      </Flex> */}
+      {secondary ? <Text color="white">{message}</Text> : null}
     </Box>
   );
 }

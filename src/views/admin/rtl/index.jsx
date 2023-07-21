@@ -36,6 +36,8 @@ import Usa from "assets/img/dashboards/usa.png";
 // Custom components
 import MiniCalendar from "components/calendar/MiniCalendar";
 import MiniStatistics from "components/card/MiniStatistics";
+import MiniStatisticsNEW from "components/card/MiniStatisticsNew";
+
 import IconBox from "components/icons/IconBox";
 import React from "react";
 import {
@@ -43,20 +45,32 @@ import {
   MdAttachMoney,
   MdBarChart,
   MdFileCopy,
+  MdWatch,
+  MdHeadphones,
+  MdSpeaker,
 } from "react-icons/md";
 import CheckTable from "views/admin/default/components/CheckTable";
 import ComplexTable from "views/admin/default/components/ComplexTable";
 import DailyTraffic from "views/admin/default/components/DailyTraffic";
+import ReviewCategory from "views/admin/default/components/ReviewCategory";
+
 import PieCard from "views/admin/default/components/PieCard";
+import ProductSource from "views/admin/default/components/ProductSource";
+
+import Review from "views/admin/default/components/Review";
+
 import Tasks from "views/admin/default/components/Tasks";
 import TotalSpent from "views/admin/default/components/TotalSpent";
 import WeeklyRevenue from "views/admin/default/components/WeeklyRevenue";
+import ProdcutRating from "views/admin/default/components/ProdcutRating";
+
 import {
   columnsDataCheck,
   columnsDataComplex,
 } from "views/admin/default/variables/columnsData";
 import tableDataCheck from "views/admin/default/variables/tableDataCheck.json";
 import tableDataComplex from "views/admin/default/variables/tableDataComplex.json";
+import Summary from "views/admin/profile/components/Summary";
 
 export default function UserReports() {
   // Chakra Color Mode
@@ -65,107 +79,148 @@ export default function UserReports() {
   return (
     <Box pt={{ base: "130px", md: "80px", xl: "80px" }}>
       <SimpleGrid
-        columns={{ base: 1, md: 2, lg: 3, "2xl": 6 }}
-        gap='20px'
-        mb='20px'>
-        <MiniStatistics
+        columns={{ base: 1, md: 2, lg: 3, "2xl": 3 }}
+        gap="20px"
+        mb="20px"
+      >
+        {/* <Flex
+          alignItems={"center"}
+          justifyContent={"center"}
+          borderRadius={"50%"}
+        ></Flex> */}
+        <MiniStatisticsNEW
           startContent={
             <IconBox
-              w='56px'
-              h='56px'
+              w="200px"
+              h="200px"
               bg={boxBg}
               icon={
-                <Icon w='32px' h='32px' as={MdBarChart} color={brandColor} />
+                <Icon w="70px" h="70px" as={MdSpeaker} color={brandColor} />
               }
             />
           }
-          name='Earnings'
-          value='$350.4'
+          name="Portable Speaker"
+          value="100"
         />
-        <MiniStatistics
+        <MiniStatisticsNEW
           startContent={
             <IconBox
-              w='56px'
-              h='56px'
+              w="200px"
+              h="200px"
               bg={boxBg}
               icon={
-                <Icon w='32px' h='32px' as={MdAttachMoney} color={brandColor} />
+                <Icon w="70px" h="70px" as={MdHeadphones} color={brandColor} />
               }
             />
           }
-          name='Spend this month'
-          value='$642.39'
+          name="Wireless Earbud"
+          value="50"
         />
-        <MiniStatistics growth='+23%' name='Sales' value='$574.34' />
+        <MiniStatisticsNEW
+          startContent={
+            <IconBox
+              w="200px"
+              h="200px"
+              bg={boxBg}
+              icon={<Icon w="70px" h="70px" as={MdWatch} color={brandColor} />}
+            />
+          }
+          name="Smart Watch"
+          value="10"
+        />
+        {/* <Flex
+          alignItems={"center"}
+          justifyContent={"center"}
+          borderRadius={"50%"}
+        ></Flex> */}
+        {/* <MiniStatistics
+          startContent={
+            <IconBox
+              w="56px"
+              h="56px"
+              bg={boxBg}
+              icon={
+                <Icon w="32px" h="32px" as={MdAttachMoney} color={brandColor} />
+              }
+            />
+          }
+          name="Spend this month"
+          value="$642.39"
+        />
+        <MiniStatistics growth="+23%" name="Sales" value="$574.34" />
         <MiniStatistics
           endContent={
-            <Flex me='-16px' mt='10px'>
-              <FormLabel htmlFor='balance'>
+            <Flex me="-16px" mt="10px">
+              <FormLabel htmlFor="balance">
                 <Avatar src={Usa} />
               </FormLabel>
               <Select
-                id='balance'
-                variant='mini'
-                mt='5px'
-                me='0px'
-                defaultValue='usd'>
-                <option value='usd'>USD</option>
-                <option value='eur'>EUR</option>
-                <option value='gba'>GBA</option>
+                id="balance"
+                variant="mini"
+                mt="5px"
+                me="0px"
+                defaultValue="usd"
+              >
+                <option value="usd">USD</option>
+                <option value="eur">EUR</option>
+                <option value="gba">GBA</option>
               </Select>
             </Flex>
           }
-          name='Your balance'
-          value='$1,000'
+          name="Your balance"
+          value="$1,000"
         />
         <MiniStatistics
           startContent={
             <IconBox
-              w='56px'
-              h='56px'
-              bg='linear-gradient(90deg, #4481EB 0%, #04BEFE 100%)'
-              icon={<Icon w='28px' h='28px' as={MdAddTask} color='white' />}
+              w="56px"
+              h="56px"
+              bg="linear-gradient(90deg, #4481EB 0%, #04BEFE 100%)"
+              icon={<Icon w="28px" h="28px" as={MdAddTask} color="white" />}
             />
           }
-          name='New Tasks'
-          value='154'
+          name="New Tasks"
+          value="154"
         />
         <MiniStatistics
           startContent={
             <IconBox
-              w='56px'
-              h='56px'
+              w="56px"
+              h="56px"
               bg={boxBg}
               icon={
-                <Icon w='32px' h='32px' as={MdFileCopy} color={brandColor} />
+                <Icon w="32px" h="32px" as={MdFileCopy} color={brandColor} />
               }
             />
           }
-          name='Total Projects'
-          value='2935'
-        />
+          name="Total Projects"
+          value="2935"
+        /> */}
       </SimpleGrid>
 
-      <SimpleGrid columns={{ base: 1, md: 2, xl: 2 }} gap='20px' mb='20px'>
-        <TotalSpent />
-        <WeeklyRevenue />
+      <SimpleGrid columns={{ base: 1, md: 1, xl: 1 }} gap="20px" mb="20px">
+        <ProdcutRating />
       </SimpleGrid>
-      <SimpleGrid columns={{ base: 1, md: 1, xl: 2 }} gap='20px' mb='20px'>
-        <CheckTable columnsData={columnsDataCheck} tableData={tableDataCheck} />
-        <SimpleGrid columns={{ base: 1, md: 2, xl: 2 }} gap='20px'>
-          <DailyTraffic />
-          <PieCard />
+      <SimpleGrid columns={{ base: 1, md: 1, xl: 2 }} gap="20px" mb="20px">
+        {/* <CheckTable columnsData={columnsDataCheck} tableData={tableDataCheck} /> */}
+        <ReviewCategory />
+
+        <SimpleGrid columns={{ base: 1, md: 2, xl: 2 }} gap="20px">
+          <Review />
+
+          <ProductSource />
         </SimpleGrid>
       </SimpleGrid>
-      <SimpleGrid columns={{ base: 1, md: 1, xl: 2 }} gap='20px' mb='20px'>
-        <ComplexTable
+      <SimpleGrid columns={{ base: 1, md: 1, xl: 1 }} gap="20px" mb="20px">
+        <Summary></Summary>
+        {/* <ComplexTable
           columnsData={columnsDataComplex}
           tableData={tableDataComplex}
         />
-        <SimpleGrid columns={{ base: 1, md: 2, xl: 2 }} gap='20px'>
+        <SimpleGrid columns={{ base: 1, md: 2, xl: 2 }} gap="20px">
           <Tasks />
-          <MiniCalendar h='100%' minW='100%' selectRange={false} />
-        </SimpleGrid>
+          <MiniCalendar h="100%" minW="100%" selectRange={false} />
+        </SimpleGrid> */}
       </SimpleGrid>
     </Box>
   );
