@@ -259,4 +259,5 @@ export default function UserReports() {
       </SimpleGrid>
     </Box>
   );
+  
 }
