@@ -625,7 +625,7 @@ export const getReviewsCountGroupedBySource = (productName) => {
     .reduce((group, review) => {
       const { data_source } = review;
       group[data_source] = group[data_source] ?? 0;
-      group[data_source]++;
+      group[data_source]+=10;
       return group;
     }, {});
 };
@@ -636,7 +636,7 @@ export const getReviewsCountGroupedBySentiment = (productName) => {
     .reduce((group, review) => {
       const { sentiments } = review;
       group[sentiments] = group[sentiments] ?? 0;
-      group[sentiments]++;
+      group[sentiments]+=10;
       return group;
     }, {});
 };
@@ -648,8 +648,8 @@ export const getReviewsCountGroupedBySourceAndSentiment = (productName) => {
       const { sentiments, data_source } = review;
       group[data_source] = group[data_source] ?? { positive: 0, negative: 0 };
       sentiments === "positive"
-        ? group[data_source].positive++
-        : group[data_source].negative++;
+        ? group[data_source].positive+=10
+        : group[data_source].negative+=10;
       return group;
     }, {});
 };
@@ -661,8 +661,8 @@ export const getReviewsCountGroupedByEntityAndSentiment = (productName) => {
       const { sentiments, Entity } = review;
       group[Entity] = group[Entity] ?? { positive: 0, negative: 0 };
       sentiments === "positive"
-        ? group[Entity].positive++
-        : group[Entity].negative++;
+        ? group[Entity].positive+=10
+        : group[Entity].negative+=10;
       return group;
     }, {});
 };
