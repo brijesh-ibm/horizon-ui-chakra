@@ -614,8 +614,10 @@ export const OriginalSourceData = {
 };
 
 export const getReviewsCount = (productName) => {
-  return OriginalSourceData.data.filter((review) => review.product === productName).length;
-}
+  return OriginalSourceData.data.filter(
+    (review) => review.product === productName,
+  ).length;
+};
 
 export const getReviewsCountGroupedBySource = (productName) => {
   return OriginalSourceData.data
