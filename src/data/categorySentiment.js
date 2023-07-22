@@ -1,59 +1,83 @@
-function getSentimentHeader() {
-  const categories = [
-    "Battery",
-    "Perfomance",
-    "Quality",
-    "Durability",
-    "Category 1",
-    "Category 2",
-    "Category 3",
-    "Category 4",
-  ];
-  return categories;
-}
+import { getReviewsCountGroupedByEntityAndSentiment } from "data/originalSourceData";
 
+function getSentimentHeader() {
+  const categories = getReviewsCountGroupedByEntityAndSentiment("smartwatch");
+  return Object.keys(categories);
+
+  //   const categories = [
+  //     "Battery",
+  //     "Perfomance",
+  //     "Quality",
+  //     "Durability",
+  //     "Category 1",
+  //     "Category 2",
+  //     "Category 3",
+  //     "Category 4",
+  //   ];
+  //   return categories;
+}
+function getdata(productName) {
+  const categories = getReviewsCountGroupedByEntityAndSentiment(productName);
+  const keys = Object.keys(categories);
+  const values = Object.values(categories);
+  let positiveArray = [];
+  let negetiveArray = [];
+  values.map((item) => {
+    positiveArray.push(item.positive);
+    negetiveArray.push(item.negative);
+  });
+  return { positiveArray, negetiveArray };
+}
 export function getCategorySentimentChartDataConsumption(id) {
+  let { positiveArray, negetiveArray } = getdata("smartwatch");
+
   let sourceChartData = [
     {
       name: "Positive",
-      data: [400, 370, 330, 390, 320, 370, 330, 390],
+      data: positiveArray,
     },
     {
       name: "Negetive",
-      data: [400, 370, 330, 390, 320, 370, 330, 390],
+      data: negetiveArray,
     },
   ];
   if (id == 1) {
+    let { positiveArray, negetiveArray } = getdata("smartwatch");
+
     sourceChartData = [
       {
         name: "Positive",
-        data: [400, 370, 330, 390, 320, 370, 330, 390],
+        data: positiveArray,
       },
       {
         name: "Negetive",
-        data: [400, 370, 330, 390, 320, 370, 330, 390],
+        data: negetiveArray,
       },
     ];
   } else if (id == 2) {
+    let { positiveArray, negetiveArray } = getdata("Wireless Earbudz");
+
     sourceChartData = [
       {
         name: "Positive",
-        data: [100, 270, 330, 490, 520, 670, 730, 890],
+        data: positiveArray,
       },
       {
         name: "Negetive",
-        data: [400, 370, 330, 390, 320, 370, 330, 390],
+        data: negetiveArray,
       },
     ];
   } else if (id == 3) {
+    let { positiveArray, negetiveArray } = getdata("Portable Speaker");
+
     sourceChartData = [
       {
         name: "Positive",
-        data: [800, 770, 630, 590, 420, 370, 230, 190],
+        data: positiveArray,
       },
       {
         name: "Negetive",
-        data: [400, 370, 330, 390, 320, 370, 330, 390],
+        data: negetiveArray,
       },
     ];
   }
