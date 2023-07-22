@@ -63,7 +63,7 @@ export const OriginalSourceData = {
       product_name: "Elitefit x",
       company: "Elite",
       sentiments: "negative",
-      Entity: "Value for money",
+      Entity: "Great Deal",
     },
     {
       data_source: "amazon",
@@ -73,7 +73,7 @@ export const OriginalSourceData = {
       product_name: "Elitefit x",
       company: "Elite",
       sentiments: "negative",
-      Entity: "Heart rate sensor",
+      Entity: "HRS",
     },
     {
       data_source: "amazon",
@@ -384,7 +384,7 @@ export const OriginalSourceData = {
       product_name: "Elite Air 16",
       company: "Elite",
       sentiments: "positive",
-      Entity: "Value for money",
+      Entity: "Great Deal",
     },
     {
       data_source: "twitter",
@@ -614,9 +614,10 @@ export const OriginalSourceData = {
 };
 
 export const getReviewsCount = (productName) => {
-  return OriginalSourceData.data.filter(
-    (review) => review.product === productName
-  ).length * 10;
+  return (
+    OriginalSourceData.data.filter((review) => review.product === productName)
+      .length * 10
+  );
 };
 
 export const getReviewsCountGroupedBySource = (productName) => {
@@ -625,7 +626,7 @@ export const getReviewsCountGroupedBySource = (productName) => {
     .reduce((group, review) => {
       const { data_source } = review;
       group[data_source] = group[data_source] ?? 0;
-      group[data_source]+=10;
+      group[data_source] += 10;
       return group;
     }, {});
 };
@@ -636,7 +637,7 @@ export const getReviewsCountGroupedBySentiment = (productName) => {
     .reduce((group, review) => {
       const { sentiments } = review;
       group[sentiments] = group[sentiments] ?? 0;
-      group[sentiments]+=10;
+      group[sentiments] += 10;
       return group;
     }, {});
 };
@@ -648,8 +649,8 @@ export const getReviewsCountGroupedBySourceAndSentiment = (productName) => {
       const { sentiments, data_source } = review;
       group[data_source] = group[data_source] ?? { positive: 0, negative: 0 };
       sentiments === "positive"
-        ? group[data_source].positive+=10
-        : group[data_source].negative+=10;
+        ? (group[data_source].positive += 10)
+        : (group[data_source].negative += 10);
       return group;
     }, {});
 };
@@ -661,8 +662,8 @@ export const getReviewsCountGroupedByEntityAndSentiment = (productName) => {
       const { sentiments, Entity } = review;
       group[Entity] = group[Entity] ?? { positive: 0, negative: 0 };
       sentiments === "positive"
-        ? group[Entity].positive+=10
-        : group[Entity].negative+=10;
+        ? (group[Entity].positive += 10)
+        : (group[Entity].negative += 10);
       return group;
     }, {});
 };
