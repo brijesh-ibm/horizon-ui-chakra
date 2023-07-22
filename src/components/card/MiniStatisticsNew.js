@@ -23,6 +23,8 @@ export default function Default(props) {
     backgroundColor,
     clickOnCategoryBox,
     id,
+    handleMouseEnter,
+   
   } = props;
   const textColor = useColorModeValue("secondaryGray.900", "white");
   const textColorSecondary = "secondaryGray.600";
@@ -33,6 +35,11 @@ export default function Default(props) {
         onClick={() => {
           clickOnCategoryBox(id);
         }}
+        onMouseEnter={() => {
+          handleMouseEnter(id);
+        }}
+      
+        
         my="auto"
         h="100%"
         backgroundColor={backgroundColor}
@@ -53,6 +60,7 @@ export default function Default(props) {
           </StatLabel>
           <StatNumber
             color={textColorSecondary}
+            borderRadius={"30xl"}
             fontSize={{
               base: "2xl",
             }}
