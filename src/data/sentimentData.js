@@ -1,3 +1,4 @@
+import { getReviewsCountGroupedBySentiment } from "data/originalSourceData";
 function getSentimentHeader() {
   const sourceHeader = ["Positive", "Negetive"];
   return sourceHeader;
@@ -5,11 +6,17 @@ function getSentimentHeader() {
 export function getSentimentChartData(id) {
   let sourceChartData = [5, 20];
   if (id == 1) {
-    sourceChartData = [5, 20];
+    const data = getReviewsCountGroupedBySentiment("smartwatch");
+    console.log("Object.keys(data)", Object.values(data));
+    sourceChartData = Object.values(data);
   } else if (id == 2) {
-    sourceChartData = [50, 10];
+    const data = getReviewsCountGroupedBySentiment("Wireless Earbudz");
+    console.log("Object.keys(data)", Object.values(data));
+    sourceChartData = Object.values(data);
   } else if (id == 3) {
-    sourceChartData = [5, 50];
+    const data = getReviewsCountGroupedBySentiment("Portable Speaker");
+    console.log("Object.keys(data)", Object.values(data));
+    sourceChartData = Object.values(data);
   }
   return sourceChartData;
 }
