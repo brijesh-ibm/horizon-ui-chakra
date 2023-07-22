@@ -88,7 +88,7 @@ export const getCategorySentimentChartOptionsConsumption = {
   chart: {
     stacked: true,
     toolbar: {
-      show: false,
+      show: true,
     },
   },
   tooltip: {
@@ -106,7 +106,7 @@ export const getCategorySentimentChartOptionsConsumption = {
   },
   xaxis: {
     categories: getSentimentHeader(),
-    show: false,
+    show: true,
     labels: {
       show: true,
       style: {
@@ -116,10 +116,10 @@ export const getCategorySentimentChartOptionsConsumption = {
       },
     },
     axisBorder: {
-      show: false,
+      show: true,
     },
     axisTicks: {
-      show: false,
+      show: true,
     },
   },
   yaxis: {

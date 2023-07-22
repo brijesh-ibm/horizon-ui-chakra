@@ -64,19 +64,19 @@ export default function WeeklyRevenue(props) {
     { bg: "whiteAlpha.100" },
   );
   return (
-    <Card align="center" direction="column" w="100%" {...rest}>
-      <Flex align="lef" w="100%" px="15px" py="10px">
-        <Text
-          align={"left"}
-          me="auto"
-          color={textColor}
-          fontSize="2xl"
-          fontWeight="700"
-          lineHeight="100%"
-        >
-          Source Wise Sentiment Summary
-        </Text>
-        {/* <Button
+    <Card align="" direction="column" w="100%" {...rest}>
+      {/* <Flex align="lef" w="100%" px="15px" py="10px" backgroundColor={"green"}> */}
+      <Text
+        align={"left"}
+        me="auto"
+        color={textColor}
+        fontSize="2xl"
+        fontWeight="700"
+        lineHeight="100%"
+      >
+        Source Wise Sentiment Summary
+      </Text>
+      {/* <Button
           align="center"
           justifyContent="center"
           bg={bgButton}
@@ -91,9 +91,9 @@ export default function WeeklyRevenue(props) {
         >
           <Icon as={MdBarChart} color={iconColor} w="24px" h="24px" />
         </Button> */}
-      </Flex>
+      {/* </Flex> */}
 
-      <Box h="240px" mt="auto">
+      <Box h="400px" mt="auto">
         <BarChartFun data={data} option={option} />
       </Box>
     </Card>

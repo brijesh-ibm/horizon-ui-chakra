@@ -82,12 +82,12 @@ export default function ReviewCategory(props) {
         </Flex>
         <Flex align="center">
           <Icon as={RiArrowUpSFill} color="green.500" />
-          <Text color="green.500" fontSize="sm" fontWeight="700">
+          {/* <Text color="green.500" fontSize="sm" fontWeight="700">
             +2.45%
-          </Text>
+          </Text> */}
         </Flex>
       </Flex>
-      <Box h="240px" mt="auto">
+      <Box h="400px" mt="auto">
         <BarChartFun data={data} option={option} />
       </Box>
     </Card>
