@@ -77,7 +77,7 @@ import {
   getReviewsCount,
 } from "data/originalSourceData";
 export default function UserReports() {
-  const [isSmartWatchClick, setisSmartWatchClick] = useState("aliceblue");
+  const [isSmartWatchClick, setisSmartWatchClick] = useState("#bde0ff");
   const [isEarbudClick, setisEarbudClick] = useState("transperent");
   const [isSpeakerClick, setisSpeakerClick] = useState("transperent");
   const [selectedProduct, setselectedProduct] = useState(1);
@@ -94,17 +94,17 @@ export default function UserReports() {
     // console.log("getReviewsCountGroupedBySource", JSON.stringify(d));
     setselectedProduct(param);
     if (param == 1) {
-      setisSmartWatchClick("aliceblue");
+      setisSmartWatchClick("#bde0ff");
       setisEarbudClick("transperent");
       setisSpeakerClick("transperent");
     } else if (param == 2) {
       setisSmartWatchClick("transperent");
-      setisEarbudClick("aliceblue");
+      setisEarbudClick("#bde0ff");
       setisSpeakerClick("transperent");
     } else if (param == 3) {
       setisSmartWatchClick("transperent");
       setisEarbudClick("transperent");
-      setisSpeakerClick("aliceblue");
+      setisSpeakerClick("#bde0ff");
     }
   });
 
