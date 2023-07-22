@@ -629,3 +629,25 @@ export const getReviewsCountGroupedBySource = (productName) => {
       return group;
     }, {});
 };
+
+export const getReviewsCountGroupedBySentiment = (productName) => {
+  return OriginalSourceData.data
+    .filter((review) => review.product === productName)
+    .reduce((group, review) => {
+      const { sentiments } = review;
+      group[sentiments] = group[sentiments] ?? 0;
+      group[sentiments]++;
+      return group;
+    }, {});
+};
+
+export const getReviewsCountGroupedBySourceAndSentiment = (productName) => {
+  return OriginalSourceData.data
+    .filter((review) => review.product === productName)
+    .reduce((group, review) => {
+      const { sentiments, data_source } = review;
+      group[data_source] = group[data_source] ?? {positive: 0, negative: 0};
+      sentiments === "positive" ? group[data_source].positive++ : group[data_source].negative++;
+      return group;
+    }, {});
+};
