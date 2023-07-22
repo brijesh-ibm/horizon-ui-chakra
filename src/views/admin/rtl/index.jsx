@@ -231,8 +231,8 @@ export default function UserReports() {
       </SimpleGrid>
 
       <SimpleGrid columns={{ base: 1, md: 3, xl: 3 }} gap="20px" mb="20px">
-        <ProdcutRating />
-        <Review />
+        <ProdcutRating selectedProduct={selectedProduct} />
+        <Review selectedProduct={selectedProduct} />
 
         <ProductSource selectedProduct={selectedProduct} />
       </SimpleGrid>
@@ -240,7 +240,7 @@ export default function UserReports() {
         {/* <CheckTable columnsData={columnsDataCheck} tableData={tableDataCheck} /> */}
 
         <Summary height="500"></Summary>
-        <ReviewCategory height="500" />
+        <ReviewCategory selectedProduct={selectedProduct} height="500" />
         {/* <SimpleGrid columns={{ base: 1, md: 1, xl: 1 }} gap="20px">
           <Review />
 
