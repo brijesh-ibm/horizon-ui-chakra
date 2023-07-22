@@ -9,8 +9,8 @@ import {
 } from "@chakra-ui/react";
 import Card from "components/card/Card.js";
 // Custom components
-import BarChart from "components/charts/BarChart";
-import React from "react";
+import BarChartFun from "components/charts/BarChartFun";
+import React, { useEffect, useState } from "react";
 import {
   barChartDataConsumption,
   barChartOptionsConsumption,
@@ -21,9 +21,35 @@ import {
   allChartOptionsConsumption,
 } from "variables/charts";
 import { MdBarChart } from "react-icons/md";
+import {
+  getAllChartDataConsumption,
+  getAllChartOptionsConsumption,
+} from "../../../../data/sourceSentiment";
 
 export default function WeeklyRevenue(props) {
   const { ...rest } = props;
+  const { selectedProduct } = props;
+  const [data, setdata] = useState([
+    {
+      name: "Positive",
+      data: [400, 370, 330, 390, 320, 370, 330, 390],
+    },
+    {
+      name: "Negetive",
+      data: [400, 370, 330, 390, 320, 370, 330, 390],
+    },
+  ]);
+  const [option, setoption] = useState(getAllChartOptionsConsumption);
+  const [currentSelection, setcurrentSelection] = useState(1);
+
+  useEffect(async () => {
+    if (currentSelection != selectedProduct) {
+      const sampledata = await getAllChartDataConsumption(selectedProduct);
+      setdata(sampledata);
+      setcurrentSelection(selectedProduct);
+      console.log("Conversion", data);
+    }
+  });
 
   // Chakra Color Mode
   const textColor = useColorModeValue("secondaryGray.900", "white");
@@ -68,10 +94,7 @@ export default function WeeklyRevenue(props) {
       </Flex>
 
       <Box h="240px" mt="auto">
-        <BarChart
-          chartData={allChartDataConsumption}
-          chartOptions={allChartOptionsConsumption}
-        />
+        <BarChartFun data={data} option={option} />
       </Box>
     </Card>
   );

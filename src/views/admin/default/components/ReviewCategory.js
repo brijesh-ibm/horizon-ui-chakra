@@ -1,8 +1,8 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 // Chakra imports
 import { Box, Flex, Icon, Text, useColorModeValue } from "@chakra-ui/react";
-import BarChart from "components/charts/BarChart";
+import BarChartFun from "components/charts/BarChartFun";
 
 // Custom components
 import Card from "components/card/Card.js";
@@ -14,12 +14,42 @@ import {
   categorySentimentChartDataConsumption,
   categorySentimentChartOptionsConsumption,
 } from "variables/charts";
+import {
+  getCategorySentimentChartDataConsumption,
+  getCategorySentimentChartOptionsConsumption,
+} from "../../../../data/categorySentiment";
 // Assets
 import { RiArrowUpSFill } from "react-icons/ri";
 
 export default function ReviewCategory(props) {
   const { ...rest } = props;
 
+  const { selectedProduct } = props;
+  const [data, setdata] = useState([
+    {
+      name: "Positive",
+      data: [400, 370, 330, 390, 320, 370, 330, 390],
+    },
+    {
+      name: "Negetive",
+      data: [400, 370, 330, 390, 320, 370, 330, 390],
+    },
+  ]);
+  const [option, setoption] = useState(
+    getCategorySentimentChartOptionsConsumption,
+  );
+  const [currentSelection, setcurrentSelection] = useState(1);
+
+  useEffect(async () => {
+    if (currentSelection != selectedProduct) {
+      const sampledata = await getCategorySentimentChartDataConsumption(
+        selectedProduct,
+      );
+      setdata(sampledata);
+      setcurrentSelection(selectedProduct);
+      console.log("Conversion", data);
+    }
+  });
   // Chakra Color Mode
   const textColor = useColorModeValue("secondaryGray.900", "white");
   return (
@@ -58,10 +88,7 @@ export default function ReviewCategory(props) {
         </Flex>
       </Flex>
       <Box h="240px" mt="auto">
-        <BarChart
-          chartData={categorySentimentChartDataConsumption}
-          chartOptions={categorySentimentChartOptionsConsumption}
-        />
+        <BarChartFun data={data} option={option} />
       </Box>
     </Card>
   );

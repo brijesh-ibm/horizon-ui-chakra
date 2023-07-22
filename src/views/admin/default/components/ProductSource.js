@@ -13,7 +13,7 @@ import {
 import {
   getSourceChartData,
   getSourceChartOptions,
-} from "../../../../data/originalSourceData";
+} from "../../../../data/sourceData";
 import { VSeparator } from "components/separator/Separator";
 import React, { useEffect, useState } from "react";
 
@@ -65,9 +65,9 @@ export default function Conversion(props) {
           <option value="yearly">Yearly</option>
         </Select> */}
       </Flex>
-      <PieChartFun h="70%" w="100%" data={data} option={option} />
+      <PieChartFun h="80%" w="100%" data={data} option={option} />
 
-      <Card
+      {/* <Card
         bg={cardColor}
         flexDirection="row"
         boxShadow={cardShadow}
@@ -110,7 +110,7 @@ export default function Conversion(props) {
             25%
           </Text>
         </Flex>
-      </Card>
+      </Card> */}
     </Card>
   );
 }

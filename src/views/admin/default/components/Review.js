@@ -5,10 +5,28 @@ import Card from "components/card/Card.js";
 import PieChart from "components/charts/PieChart";
 import { sentimentChartData, sentimentChartOptions } from "variables/charts";
 import { VSeparator } from "components/separator/Separator";
-import React from "react";
-
+import React, { useEffect, useState } from "react";
+import PieChartFun from "components/charts/PieChartFun";
+import {
+  getSentimentChartData,
+  getSentimentChartOptions,
+} from "../../../../data/sentimentData";
 export default function Conversion(props) {
   const { ...rest } = props;
+
+  const { selectedProduct } = props;
+  const [data, setdata] = useState([5, 10]);
+  const [option, setoption] = useState(getSentimentChartOptions);
+  const [currentSelection, setcurrentSelection] = useState(1);
+
+  useEffect(async () => {
+    if (currentSelection != selectedProduct) {
+      const sampledata = await getSentimentChartData(selectedProduct);
+      setdata(sampledata);
+      setcurrentSelection(selectedProduct);
+      console.log("Conversion", data);
+    }
+  });
 
   // Chakra Color Mode
   const textColor = useColorModeValue("secondaryGray.900", "white");
@@ -42,13 +60,15 @@ export default function Conversion(props) {
         </Select> */}
       </Flex>
 
-      <PieChart
+      {/* <PieChart
         h="100%"
         w="100%"
         chartData={sentimentChartData}
         chartOptions={sentimentChartOptions}
-      />
-      <Card
+      /> */}
+      <PieChartFun h="100%" w="100%" data={data} option={option} />
+
+      {/* <Card
         bg={cardColor}
         flexDirection="row"
         boxShadow={cardShadow}
@@ -91,7 +111,7 @@ export default function Conversion(props) {
             25%
           </Text>
         </Flex>
-      </Card>
+      </Card> */}
     </Card>
   );
 }
