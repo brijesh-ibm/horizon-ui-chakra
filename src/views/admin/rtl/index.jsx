@@ -75,6 +75,8 @@ import {
   getSources,
   getReviewsCountGroupedBySource,
   getReviewsCountGroupedBySentiment,
+  getReviewsCountGroupedBySourceAndSentiment,
+  getReviewsCountGroupedByEntityAndSentiment,
   getReviewsCount,
 } from "data/originalSourceData";
 export default function UserReports() {
@@ -89,10 +91,20 @@ export default function UserReports() {
 
   // Chakra Color Mode
   const handleMouseEnter = useCallback(async (param) => {
-    const d = getReviewsCountGroupedBySentiment("smartwatch");
+    const d = getReviewsCountGroupedBySourceAndSentiment("smartwatch");
     // getSources("smartwatch");
     // const d = getReviewsCountGroupedBySource("smartwatch");
-    console.log("getReviewsCountGroupedBySentiment", JSON.stringify(d));
+    console.log(
+      "getReviewsCountGroupedBySourceAndSentiment",
+      JSON.stringify(d),
+    );
+    const d1 = getReviewsCountGroupedByEntityAndSentiment("smartwatch");
+    // getSources("smartwatch");
+    // const d = getReviewsCountGroupedBySource("smartwatch");
+    console.log(
+      "getReviewsCountGroupedByEntityAndSentiment",
+      JSON.stringify(d1),
+    );
     setselectedProduct(param);
     if (param == 1) {
       setisSmartWatchClick("#bde0ff");

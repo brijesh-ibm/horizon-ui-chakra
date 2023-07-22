@@ -1,61 +1,82 @@
+import { getReviewsCountGroupedBySourceAndSentiment } from "data/originalSourceData";
+
 function getSourceList() {
-  const categories = [
-    "Amazon",
-    "Flipkart",
-    "Facebook",
-    "Instagram",
-    "Twitter",
-    "Quora",
-  ];
-  return categories;
+  const categories = getReviewsCountGroupedBySourceAndSentiment("smartwatch");
+  console.log("getSourceList1", categories);
+  //   const data1 = Object.keys(categories);
+  //   const data2 = Object.keys(data1);
+  //   const data3 = Object.keys(data2);
+  //   console.log("getSourceList", data1, data2, data3);
+  return Object.keys(categories);
 }
 
 export function getAllChartDataConsumption(id) {
+  let { positiveArray, negetiveArray } = getdata("smartwatch");
+
   let sourceChartData = [
     {
       name: "Positive",
-      data: [400, 370, 330, 390, 320, 370, 330, 390],
+      data: positiveArray,
     },
     {
       name: "Negetive",
-      data: [400, 370, 330, 390, 320, 370, 330, 390],
+      data: negetiveArray,
     },
   ];
   if (id == 1) {
+    let { positiveArray, negetiveArray } = getdata("smartwatch");
+
     sourceChartData = [
       {
         name: "Positive",
-        data: [400, 370, 330, 390, 320, 370, 330, 390],
+        data: positiveArray,
       },
       {
         name: "Negetive",
-        data: [400, 370, 330, 390, 320, 370, 330, 390],
+        data: negetiveArray,
       },
     ];
   } else if (id == 2) {
+    let { positiveArray, negetiveArray } = getdata("Wireless Earbudz");
+
     sourceChartData = [
       {
         name: "Positive",
-        data: [100, 270, 330, 490, 520, 670, 730, 890],
+        data: positiveArray,
       },
       {
         name: "Negetive",
-        data: [400, 370, 330, 390, 320, 370, 330, 390],
+        data: negetiveArray,
       },
     ];
   } else if (id == 3) {
+    let { positiveArray, negetiveArray } = getdata("Portable Speaker");
+
     sourceChartData = [
       {
         name: "Positive",
-        data: [800, 770, 630, 590, 420, 370, 230, 190],
+        data: positiveArray,
       },
       {
         name: "Negetive",
-        data: [400, 370, 330, 390, 320, 370, 330, 390],
+        data: negetiveArray,
       },
     ];
   }
   return sourceChartData;
+
+  function getdata(productName) {
+    const categories = getReviewsCountGroupedBySourceAndSentiment(productName);
+    const keys = Object.keys(categories);
+    const values = Object.values(categories);
+    let positiveArray = [];
+    let negetiveArray = [];
+    values.map((item) => {
+      positiveArray.push(item.positive);
+      negetiveArray.push(item.negative);
+    });
+    return { positiveArray, negetiveArray };
+  }
 }
 export const getAllChartOptionsConsumption = {
   chart: {
