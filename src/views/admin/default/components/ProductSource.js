@@ -19,6 +19,7 @@ import React, { useEffect, useState } from "react";
 import { getReviewsCountGroupedBySource } from "data/originalSourceData";
 import { getReviewsCountGroupedBySentiment } from "data/originalSourceData";
 import { getReviewsCountGroupedBySourceAndSentiment } from "data/originalSourceData";
+import { getReviewsCountGroupedByEntityAndSentiment } from "data/originalSourceData";
 
 export default function Conversion(props) {
   const { ...rest } = props;
@@ -37,6 +38,7 @@ export default function Conversion(props) {
     console.log("groupby: ",getReviewsCountGroupedBySource("smartwatch"));
     console.log("groupby sentiments : ",getReviewsCountGroupedBySentiment("smartwatch"));
     console.log("groupby source and sentiments : ",getReviewsCountGroupedBySourceAndSentiment("smartwatch"));
+    console.log("groupby entity and sentiments : ",getReviewsCountGroupedByEntityAndSentiment("smartwatch"));
   });
 
   // Chakra Color Mode
