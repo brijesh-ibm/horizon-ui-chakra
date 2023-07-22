@@ -45,7 +45,7 @@ export default function Conversion(props) {
         mb="8px"
       >
         <Text color={textColor} fontSize="xl" fontWeight="600" mt="4px">
-          Sentiment Review
+          Sentiment
         </Text>
         {/* <Select
           fontSize="sm"

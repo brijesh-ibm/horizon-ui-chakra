@@ -29,7 +29,7 @@ export default function Default(props) {
 
   return (
     <Card py="15px">
-      <Flex
+      <Flex borderRadius={"15px"}
         onClick={() => {
           handleMouseEnter(id);
         }}
@@ -56,7 +56,7 @@ export default function Default(props) {
           </StatLabel>
           <StatNumber
             color={textColorSecondary}
-            borderRadius={"30xl"}
+            borderRadius={"50xl"}
             fontSize={{
               base: "2xl",
             }}

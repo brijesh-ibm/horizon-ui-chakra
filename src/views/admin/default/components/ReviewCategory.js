@@ -58,7 +58,7 @@ export default function ReviewCategory(props) {
         <Flex flexDirection="column" align="start" me="20px">
           <Flex w="100%">
             <Text me="auto" color={textColor} fontSize="2xl" fontWeight="500">
-              Review Category with Sentiment
+              Product Feature Sentiment Analysis
             </Text>
           </Flex>
           <Flex align="end">

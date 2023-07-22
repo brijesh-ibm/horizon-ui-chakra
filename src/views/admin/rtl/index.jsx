@@ -71,9 +71,13 @@ import {
 import tableDataCheck from "views/admin/default/variables/tableDataCheck.json";
 import tableDataComplex from "views/admin/default/variables/tableDataComplex.json";
 import Summary from "views/admin/profile/components/Summary";
-import { getReviewsCount } from "data/originalSourceData";
+import {
+  getSources,
+  getReviewsCountGroupedBySource,
+  getReviewsCount,
+} from "data/originalSourceData";
 export default function UserReports() {
-  const [isSmartWatchClick, setisSmartWatchClick] = useState("aliceblue");
+  const [isSmartWatchClick, setisSmartWatchClick] = useState("#bde0ff");
   const [isEarbudClick, setisEarbudClick] = useState("transperent");
   const [isSpeakerClick, setisSpeakerClick] = useState("transperent");
   const [selectedProduct, setselectedProduct] = useState(1);
@@ -84,21 +88,23 @@ export default function UserReports() {
 
   // Chakra Color Mode
   const handleMouseEnter = useCallback(async (param) => {
-    const d = getReviewsCount("smartwatch");
-    console.log("getReviewsCount", d);
+    // const d = PrepareLocationList("smartwatch");
+    // getSources("smartwatch");
+    // const d = getReviewsCountGroupedBySource("smartwatch");
+    // console.log("getReviewsCountGroupedBySource", JSON.stringify(d));
     setselectedProduct(param);
     if (param == 1) {
-      setisSmartWatchClick("aliceblue");
+      setisSmartWatchClick("#bde0ff");
       setisEarbudClick("transperent");
       setisSpeakerClick("transperent");
     } else if (param == 2) {
       setisSmartWatchClick("transperent");
-      setisEarbudClick("aliceblue");
+      setisEarbudClick("#bde0ff");
       setisSpeakerClick("transperent");
     } else if (param == 3) {
       setisSmartWatchClick("transperent");
       setisEarbudClick("transperent");
-      setisSpeakerClick("aliceblue");
+      setisSpeakerClick("#bde0ff");
     }
   });
 

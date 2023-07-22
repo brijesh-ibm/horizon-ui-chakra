@@ -1,3 +1,5 @@
+import { getReviewsCountGroupedBySource } from "./originalSourceData";
+
 function getSourceHeader() {
   const sourceHeader = [
     "Amazon",
@@ -10,13 +12,24 @@ function getSourceHeader() {
   return sourceHeader;
 }
 export function getSourceChartData(id) {
+  //   console.log("123", Object.keys(value));
+  //   console.log("1232", Object.values(value));
   let sourceChartData = [10, 10, 10, 10, 10, 10];
   if (id == 1) {
-    sourceChartData = [10, 10, 10, 10, 10, 10];
+    const data = getReviewsCountGroupedBySource("smartwatch");
+    console.log("Object.keys(data)", Object.values(data));
+    sourceChartData = Object.values(data);
+    //sourceChartData = [10, 10, 10, 10, 10, 10];
   } else if (id == 2) {
-    sourceChartData = [1, 5, 20, 30, 5, 50];
+    const data = getReviewsCountGroupedBySource("Wireless Earbudz");
+    sourceChartData = Object.values(data);
+
+    //sourceChartData = [1, 5, 20, 30, 5, 50];
   } else if (id == 3) {
-    sourceChartData = [10, 5, 20, 30, 40, 70];
+    const data = getReviewsCountGroupedBySource("Portable Speaker");
+    sourceChartData = Object.values(data);
+
+    //sourceChartData = [10, 5, 20, 30, 40, 70];
   }
   return sourceChartData;
 }
