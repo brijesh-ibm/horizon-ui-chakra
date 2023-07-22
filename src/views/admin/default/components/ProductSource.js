@@ -17,6 +17,7 @@ export default function Conversion(props) {
   const { ...rest } = props;
 
   // Chakra Color Mode
+  const totalReviewFacebook = 10;
   const textColor = useColorModeValue("secondaryGray.900", "white");
   const cardColor = useColorModeValue("white", "navy.700");
   const cardShadow = useColorModeValue(
@@ -73,11 +74,11 @@ export default function Conversion(props) {
               fontWeight="700"
               mb="5px"
             >
-              Your files
+              Total of Social Media
             </Text>
           </Flex>
           <Text fontSize="lg" color={textColor} fontWeight="700">
-            63%
+            {totalReviewFacebook + "%"}
           </Text>
         </Flex>
         <VSeparator mx={{ base: "60px", xl: "60px", "2xl": "60px" }} />
@@ -90,7 +91,7 @@ export default function Conversion(props) {
               fontWeight="700"
               mb="5px"
             >
-              System
+              Total of Marketplace
             </Text>
           </Flex>
           <Text fontSize="lg" color={textColor} fontWeight="700">

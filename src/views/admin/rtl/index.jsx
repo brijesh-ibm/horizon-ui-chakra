@@ -73,24 +73,24 @@ import tableDataComplex from "views/admin/default/variables/tableDataComplex.jso
 import Summary from "views/admin/profile/components/Summary";
 
 export default function UserReports() {
-  const [isSmartWatchClick, setisSmartWatchClick] = useState("transperent");
-  const [isEarbudClick, setisEarbudClick] = useState("lightgray");
-  const [isSpeakerClick, setisSpeakerClick] = useState("lightgray");
+  const [isSmartWatchClick, setisSmartWatchClick] = useState("lightgray");
+  const [isEarbudClick, setisEarbudClick] = useState("transperent");
+  const [isSpeakerClick, setisSpeakerClick] = useState("transperent");
 
   const clickOnCategoryBox = useCallback(async (param) => {
     //alert(param);
     if (param == 1) {
-      setisSmartWatchClick("transperent");
-      setisEarbudClick("gray");
-      setisSpeakerClick("gray");
-    } else if (param == 2) {
-      setisSmartWatchClick("gray");
+      setisSmartWatchClick("lightgray");
       setisEarbudClick("transperent");
-      setisSpeakerClick("gray");
-    } else if (param == 3) {
-      setisSmartWatchClick("gray");
-      setisEarbudClick("gray");
       setisSpeakerClick("transperent");
+    } else if (param == 2) {
+      setisSmartWatchClick("transperent");
+      setisEarbudClick("lightgray");
+      setisSpeakerClick("transperent");
+    } else if (param == 3) {
+      setisSmartWatchClick("transperent");
+      setisEarbudClick("transperent");
+      setisSpeakerClick("lightgray");
     }
     // alert("Selected item2", param)
   });
