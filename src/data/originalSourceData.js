@@ -615,7 +615,7 @@ export const OriginalSourceData = {
 
 export const getReviewsCount = (productName) => {
   return OriginalSourceData.data.filter(
-    (review) => review.product === productName,
+    (review) => review.product === productName
   ).length;
 };
 
@@ -646,8 +646,23 @@ export const getReviewsCountGroupedBySourceAndSentiment = (productName) => {
     .filter((review) => review.product === productName)
     .reduce((group, review) => {
       const { sentiments, data_source } = review;
-      group[data_source] = group[data_source] ?? {positive: 0, negative: 0};
-      sentiments === "positive" ? group[data_source].positive++ : group[data_source].negative++;
+      group[data_source] = group[data_source] ?? { positive: 0, negative: 0 };
+      sentiments === "positive"
+        ? group[data_source].positive++
+        : group[data_source].negative++;
+      return group;
+    }, {});
+};
+
+export const getReviewsCountGroupedByEntityAndSentiment = (productName) => {
+  return OriginalSourceData.data
+    .filter((review) => review.product === productName)
+    .reduce((group, review) => {
+      const { sentiments, Entity } = review;
+      group[Entity] = group[Entity] ?? { positive: 0, negative: 0 };
+      sentiments === "positive"
+        ? group[Entity].positive++
+        : group[Entity].negative++;
       return group;
     }, {});
 };
