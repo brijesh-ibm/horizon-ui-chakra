@@ -238,8 +238,8 @@ export default function UserReports() {
       </SimpleGrid>
 
       <SimpleGrid columns={{ base: 1, md: 3, xl: 3 }} gap="20px" mb="20px">
-        <ProdcutRating />
-        <Review />
+        <ProdcutRating selectedProduct={selectedProduct} />
+        <Review selectedProduct={selectedProduct} />
 
         <ProductSource selectedProduct={selectedProduct} />
       </SimpleGrid>

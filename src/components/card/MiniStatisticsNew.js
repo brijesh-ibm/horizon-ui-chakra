@@ -21,10 +21,8 @@ export default function Default(props) {
     growth,
     value,
     backgroundColor,
-    clickOnCategoryBox,
     id,
     handleMouseEnter,
-   
   } = props;
   const textColor = useColorModeValue("secondaryGray.900", "white");
   const textColorSecondary = "secondaryGray.600";
@@ -33,13 +31,11 @@ export default function Default(props) {
     <Card py="15px">
       <Flex
         onClick={() => {
-          clickOnCategoryBox(id);
+          handleMouseEnter(id);
         }}
         onMouseEnter={() => {
           handleMouseEnter(id);
         }}
-      
-        
         my="auto"
         h="100%"
         backgroundColor={backgroundColor}
