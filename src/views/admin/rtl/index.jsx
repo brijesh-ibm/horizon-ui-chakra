@@ -71,7 +71,7 @@ import {
 import tableDataCheck from "views/admin/default/variables/tableDataCheck.json";
 import tableDataComplex from "views/admin/default/variables/tableDataComplex.json";
 import Summary from "views/admin/profile/components/Summary";
-
+import { getReviewsCount } from "data/originalSourceData";
 export default function UserReports() {
   const [isSmartWatchClick, setisSmartWatchClick] = useState("lightgray");
   const [isEarbudClick, setisEarbudClick] = useState("transperent");
@@ -80,6 +80,8 @@ export default function UserReports() {
 
   const clickOnCategoryBox = useCallback(async (param) => {
     //alert(param);
+    const d = getReviewsCount("smartwatch");
+    console.log("getReviewsCount", d);
     setselectedProduct(param);
     if (param == 1) {
       setisSmartWatchClick("lightgray");
@@ -126,7 +128,7 @@ export default function UserReports() {
             />
           }
           name="Portable Speaker"
-          value="100"
+          value={getReviewsCount("Portable Speaker")}
         />
         <MiniStatisticsNEW
           clickOnCategoryBox={clickOnCategoryBox}
@@ -143,7 +145,7 @@ export default function UserReports() {
             />
           }
           name="Wireless Earbud"
-          value="50"
+          value={getReviewsCount("Wireless Earbudz")}
         />
         <MiniStatisticsNEW
           clickOnCategoryBox={clickOnCategoryBox}
@@ -158,7 +160,7 @@ export default function UserReports() {
             />
           }
           name="Smart Watch"
-          value="10"
+          value={getReviewsCount("smartwatch")}
         />
         {/* <Flex
           alignItems={"center"}
@@ -239,7 +241,7 @@ export default function UserReports() {
       <SimpleGrid columns={{ base: 1, md: 1, xl: 2 }} gap="20px" mb="20px">
         {/* <CheckTable columnsData={columnsDataCheck} tableData={tableDataCheck} /> */}
 
-        <Summary height="500"></Summary>
+        <Summary height="500" selectedProduct={selectedProduct}></Summary>
         <ReviewCategory selectedProduct={selectedProduct} height="500" />
         {/* <SimpleGrid columns={{ base: 1, md: 1, xl: 1 }} gap="20px">
           <Review />
