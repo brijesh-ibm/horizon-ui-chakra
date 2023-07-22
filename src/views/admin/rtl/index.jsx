@@ -71,7 +71,11 @@ import {
 import tableDataCheck from "views/admin/default/variables/tableDataCheck.json";
 import tableDataComplex from "views/admin/default/variables/tableDataComplex.json";
 import Summary from "views/admin/profile/components/Summary";
-import { PrepareLocationList, getReviewsCount } from "data/originalSourceData";
+import {
+  getSources,
+  getReviewsCountGroupedBySource,
+  getReviewsCount,
+} from "data/originalSourceData";
 export default function UserReports() {
   const [isSmartWatchClick, setisSmartWatchClick] = useState("aliceblue");
   const [isEarbudClick, setisEarbudClick] = useState("transperent");
@@ -84,8 +88,10 @@ export default function UserReports() {
 
   // Chakra Color Mode
   const handleMouseEnter = useCallback(async (param) => {
-    const d = PrepareLocationList("smartwatch");
-    console.log("PrepareLocationList", d);
+    // const d = PrepareLocationList("smartwatch");
+    // getSources("smartwatch");
+    // const d = getReviewsCountGroupedBySource("smartwatch");
+    // console.log("getReviewsCountGroupedBySource", JSON.stringify(d));
     setselectedProduct(param);
     if (param == 1) {
       setisSmartWatchClick("aliceblue");
