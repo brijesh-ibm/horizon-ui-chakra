@@ -73,30 +73,34 @@ import tableDataComplex from "views/admin/default/variables/tableDataComplex.jso
 import Summary from "views/admin/profile/components/Summary";
 
 export default function UserReports() {
-  const [isSmartWatchClick, setisSmartWatchClick] = useState("lightgray");
+  const [isSmartWatchClick, setisSmartWatchClick] = useState("aliceblue");
   const [isEarbudClick, setisEarbudClick] = useState("transperent");
   const [isSpeakerClick, setisSpeakerClick] = useState("transperent");
   const [selectedProduct, setselectedProduct] = useState(1);
+  const bgHover = useColorModeValue(
+    { bg: "secondaryGray.400" },
+    { bg: "whiteAlpha.50" }
+  );
 
-  const clickOnCategoryBox = useCallback(async (param) => {
-    //alert(param);
+  
+  // Chakra Color Mode
+  const handleMouseEnter= useCallback(async (param) => {
     setselectedProduct(param);
     if (param == 1) {
-      setisSmartWatchClick("lightgray");
+      setisSmartWatchClick("aliceblue");
       setisEarbudClick("transperent");
       setisSpeakerClick("transperent");
     } else if (param == 2) {
       setisSmartWatchClick("transperent");
-      setisEarbudClick("lightgray");
+      setisEarbudClick("aliceblue");
       setisSpeakerClick("transperent");
     } else if (param == 3) {
       setisSmartWatchClick("transperent");
       setisEarbudClick("transperent");
-      setisSpeakerClick("lightgray");
+      setisSpeakerClick("aliceblue");
     }
-    // alert("Selected item2", param)
   });
-  // Chakra Color Mode
+
   const brandColor = useColorModeValue("brand.500", "white");
   const boxBg = useColorModeValue("secondaryGray.300", "whiteAlpha.100");
   return (
@@ -111,8 +115,10 @@ export default function UserReports() {
           justifyContent={"center"}
           borderRadius={"50%"}
         ></Flex> */}
+       
         <MiniStatisticsNEW
-          clickOnCategoryBox={clickOnCategoryBox}
+        
+          handleMouseEnter={handleMouseEnter}
           id={3}
           backgroundColor={isSpeakerClick}
           startContent={
@@ -128,8 +134,10 @@ export default function UserReports() {
           name="Portable Speaker"
           value="100"
         />
+      
         <MiniStatisticsNEW
-          clickOnCategoryBox={clickOnCategoryBox}
+      
+          handleMouseEnter={handleMouseEnter}
           id={2}
           backgroundColor={isEarbudClick}
           startContent={
@@ -146,7 +154,8 @@ export default function UserReports() {
           value="50"
         />
         <MiniStatisticsNEW
-          clickOnCategoryBox={clickOnCategoryBox}
+
+          handleMouseEnter={handleMouseEnter}
           id={1}
           backgroundColor={isSmartWatchClick}
           startContent={
@@ -231,8 +240,8 @@ export default function UserReports() {
       </SimpleGrid>
 
       <SimpleGrid columns={{ base: 1, md: 3, xl: 3 }} gap="20px" mb="20px">
-        <ProdcutRating selectedProduct={selectedProduct} />
-        <Review selectedProduct={selectedProduct} />
+        <ProdcutRating />
+        <Review />
 
         <ProductSource selectedProduct={selectedProduct} />
       </SimpleGrid>
@@ -240,7 +249,7 @@ export default function UserReports() {
         {/* <CheckTable columnsData={columnsDataCheck} tableData={tableDataCheck} /> */}
 
         <Summary height="500"></Summary>
-        <ReviewCategory selectedProduct={selectedProduct} height="500" />
+        <ReviewCategory height="500" />
         {/* <SimpleGrid columns={{ base: 1, md: 1, xl: 1 }} gap="20px">
           <Review />
 
@@ -259,4 +268,5 @@ export default function UserReports() {
       </SimpleGrid>
     </Box>
   );
+  
 }
