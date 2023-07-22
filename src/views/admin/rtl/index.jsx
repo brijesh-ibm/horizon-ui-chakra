@@ -39,7 +39,7 @@ import MiniStatistics from "components/card/MiniStatistics";
 import MiniStatisticsNEW from "components/card/MiniStatisticsNew";
 
 import IconBox from "components/icons/IconBox";
-import React from "react";
+import React, { useState, useCallback } from "react";
 import {
   MdAddTask,
   MdAttachMoney,
@@ -73,6 +73,27 @@ import tableDataComplex from "views/admin/default/variables/tableDataComplex.jso
 import Summary from "views/admin/profile/components/Summary";
 
 export default function UserReports() {
+  const [isSmartWatchClick, setisSmartWatchClick] = useState("transperent");
+  const [isEarbudClick, setisEarbudClick] = useState("lightgray");
+  const [isSpeakerClick, setisSpeakerClick] = useState("lightgray");
+
+  const clickOnCategoryBox = useCallback(async (param) => {
+    //alert(param);
+    if (param == 1) {
+      setisSmartWatchClick("transperent");
+      setisEarbudClick("gray");
+      setisSpeakerClick("gray");
+    } else if (param == 2) {
+      setisSmartWatchClick("gray");
+      setisEarbudClick("transperent");
+      setisSpeakerClick("gray");
+    } else if (param == 3) {
+      setisSmartWatchClick("gray");
+      setisEarbudClick("gray");
+      setisSpeakerClick("transperent");
+    }
+    // alert("Selected item2", param)
+  });
   // Chakra Color Mode
   const brandColor = useColorModeValue("brand.500", "white");
   const boxBg = useColorModeValue("secondaryGray.300", "whiteAlpha.100");
@@ -89,13 +110,16 @@ export default function UserReports() {
           borderRadius={"50%"}
         ></Flex> */}
         <MiniStatisticsNEW
+          clickOnCategoryBox={clickOnCategoryBox}
+          id={3}
+          backgroundColor={isSpeakerClick}
           startContent={
             <IconBox
               w="200px"
               h="200px"
               bg={boxBg}
               icon={
-                <Icon w="70px" h="70px" as={MdSpeaker} color={brandColor} />
+                <Icon w="100px" h="100px" as={MdSpeaker} color={brandColor} />
               }
             />
           }
@@ -103,6 +127,9 @@ export default function UserReports() {
           value="100"
         />
         <MiniStatisticsNEW
+          clickOnCategoryBox={clickOnCategoryBox}
+          id={2}
+          backgroundColor={isEarbudClick}
           startContent={
             <IconBox
               w="200px"
@@ -117,6 +144,9 @@ export default function UserReports() {
           value="50"
         />
         <MiniStatisticsNEW
+          clickOnCategoryBox={clickOnCategoryBox}
+          id={1}
+          backgroundColor={isSmartWatchClick}
           startContent={
             <IconBox
               w="200px"
@@ -198,21 +228,24 @@ export default function UserReports() {
         /> */}
       </SimpleGrid>
 
-      <SimpleGrid columns={{ base: 1, md: 1, xl: 1 }} gap="20px" mb="20px">
+      <SimpleGrid columns={{ base: 1, md: 3, xl: 3 }} gap="20px" mb="20px">
         <ProdcutRating />
+        <Review />
+
+        <ProductSource />
       </SimpleGrid>
       <SimpleGrid columns={{ base: 1, md: 1, xl: 2 }} gap="20px" mb="20px">
         {/* <CheckTable columnsData={columnsDataCheck} tableData={tableDataCheck} /> */}
-        <ReviewCategory />
 
-        <SimpleGrid columns={{ base: 1, md: 2, xl: 2 }} gap="20px">
+        <Summary height="500"></Summary>
+        <ReviewCategory height="500" />
+        {/* <SimpleGrid columns={{ base: 1, md: 1, xl: 1 }} gap="20px">
           <Review />
 
           <ProductSource />
-        </SimpleGrid>
+        </SimpleGrid> */}
       </SimpleGrid>
-      <SimpleGrid columns={{ base: 1, md: 1, xl: 1 }} gap="20px" mb="20px">
-        <Summary></Summary>
+      <SimpleGrid columns={{ base: 1, md: 1, xl: 2 }} gap="20px" mb="20px">
         {/* <ComplexTable
           columnsData={columnsDataComplex}
           tableData={tableDataComplex}

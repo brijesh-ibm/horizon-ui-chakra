@@ -11,18 +11,31 @@ import {
 // Custom components
 import Card from "components/card/Card.js";
 // Custom icons
-import React from "react";
+import React, { useState } from "react";
 
 export default function Default(props) {
-  const { startContent, endContent, name, growth, value } = props;
+  const {
+    startContent,
+    endContent,
+    name,
+    growth,
+    value,
+    backgroundColor,
+    clickOnCategoryBox,
+    id,
+  } = props;
   const textColor = useColorModeValue("secondaryGray.900", "white");
   const textColorSecondary = "secondaryGray.600";
 
   return (
     <Card py="15px">
       <Flex
+        onClick={() => {
+          clickOnCategoryBox(id);
+        }}
         my="auto"
         h="100%"
+        backgroundColor={backgroundColor}
         align={{ base: "center", xl: "start" }}
         justify={{ base: "center", xl: "center" }}
       >
@@ -31,7 +44,7 @@ export default function Default(props) {
         <Stat my="auto" ms={startContent ? "18px" : "0px"}>
           <StatLabel
             lineHeight="100%"
-            color={textColorSecondary}
+            color={textColor}
             fontSize={{
               base: "2xl",
             }}
@@ -39,12 +52,12 @@ export default function Default(props) {
             {name}
           </StatLabel>
           <StatNumber
-            color={textColor}
+            color={textColorSecondary}
             fontSize={{
               base: "2xl",
             }}
           >
-            {value}
+            Total Reivew : {value}
           </StatNumber>
           {growth ? (
             <Flex align="center">

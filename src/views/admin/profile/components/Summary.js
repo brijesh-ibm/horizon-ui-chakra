@@ -20,12 +20,22 @@ export default function Summary(props) {
       <Text
         color={textColorPrimary}
         fontWeight="bold"
-        fontSize="2xl"
+        fontSize="4xl"
         mt="10px"
         mb="4px"
         align={"left"}
       >
         Summary of the Product : XYZ
+      </Text>
+      <Text
+        color={textColorPrimary}
+        fontWeight="bold"
+        fontSize="2xl"
+        mt="10px"
+        mb="2px"
+        align={"left"}
+      >
+        :Positive Sentiment Summary
       </Text>
       <Text
         align={"left"}
@@ -41,7 +51,31 @@ export default function Summary(props) {
         a hand. We get our heart broken by people we love, even that we give
         them all...
       </Text>
-      <SimpleGrid columns="2" gap="20px">
+      <Text
+        color={textColorPrimary}
+        fontWeight="bold"
+        fontSize="2xl"
+        mt="10px"
+        mb="2px"
+        align={"left"}
+      >
+        : Negetive Sentiment Summary
+      </Text>
+      <Text
+        align={"left"}
+        color={textColorSecondary}
+        fontSize="2xl"
+        me="26px"
+        mb="40px"
+        marginLeft={0}
+      >
+        As we live, our hearts turn colder. Cause pain is what we go through as
+        we become older. We get insulted by others, lose trust for those others.
+        We get back stabbed by friends. It becomes harder for us to give others
+        a hand. We get our heart broken by people we love, even that we give
+        them all...
+      </Text>
+      {/* <SimpleGrid columns="2" gap="20px">
         <Information
           boxShadow={cardShadow}
           title="Action on Review"
@@ -52,7 +86,7 @@ export default function Summary(props) {
           title="Action on Complain"
           value="Here is the standard Action to be taken on Complain by Customer"
         />
-      </SimpleGrid>
+      </SimpleGrid> */}
     </Card>
   );
 }

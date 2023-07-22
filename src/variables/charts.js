@@ -208,6 +208,222 @@ export const barChartOptionsConsumption = {
   },
 };
 
+export const categorySentimentChartDataConsumption = [
+  {
+    name: "Positive",
+    data: [400, 370, 330, 390, 320, 370, 330, 390],
+  },
+  {
+    name: "Negetive",
+    data: [400, 370, 330, 390, 320, 370, 330, 390],
+  },
+];
+
+export const categorySentimentChartOptionsConsumption = {
+  chart: {
+    stacked: true,
+    toolbar: {
+      show: false,
+    },
+  },
+  tooltip: {
+    style: {
+      fontSize: "12px",
+      fontFamily: undefined,
+    },
+    onDatasetHover: {
+      style: {
+        fontSize: "12px",
+        fontFamily: undefined,
+      },
+    },
+    theme: "dark",
+  },
+  xaxis: {
+    categories: [
+      "Battery",
+      "Perfomance",
+      "Quality",
+      "Durability",
+      "Category 1",
+      "Category 2",
+      ,
+      "Category 3",
+      ,
+      "Category 3",
+    ],
+    show: false,
+    labels: {
+      show: true,
+      style: {
+        colors: "#A3AED0",
+        fontSize: "14px",
+        fontWeight: "500",
+      },
+    },
+    axisBorder: {
+      show: false,
+    },
+    axisTicks: {
+      show: false,
+    },
+  },
+  yaxis: {
+    show: false,
+    color: "black",
+    labels: {
+      show: false,
+      style: {
+        colors: "#A3AED0",
+        fontSize: "14px",
+        fontWeight: "500",
+      },
+    },
+  },
+
+  grid: {
+    borderColor: "rgba(163, 174, 208, 0.3)",
+    show: true,
+    yaxis: {
+      lines: {
+        show: false,
+        opacity: 0.5,
+      },
+    },
+    row: {
+      opacity: 0.5,
+    },
+    xaxis: {
+      lines: {
+        show: false,
+      },
+    },
+  },
+  fill: {
+    type: "solid",
+    colors: ["#5E37FF", "#6AD2FF", "#E1E9F8"],
+  },
+  legend: {
+    show: false,
+  },
+  colors: ["#5E37FF", "#6AD2FF", "#E1E9F8"],
+  dataLabels: {
+    enabled: false,
+  },
+  plotOptions: {
+    bar: {
+      borderRadius: 10,
+      columnWidth: "20px",
+    },
+  },
+};
+
+export const allChartDataConsumption = [
+  {
+    name: "Positive",
+    data: [400, 370, 330, 390, 320, 350],
+  },
+  {
+    name: "Negetive",
+    data: [400, 370, 330, 390, 320, 350],
+  },
+];
+
+export const allChartOptionsConsumption = {
+  chart: {
+    stacked: true,
+    toolbar: {
+      show: false,
+    },
+  },
+  tooltip: {
+    style: {
+      fontSize: "12px",
+      fontFamily: undefined,
+    },
+    onDatasetHover: {
+      style: {
+        fontSize: "12px",
+        fontFamily: undefined,
+      },
+    },
+    theme: "dark",
+  },
+  xaxis: {
+    categories: [
+      "Amazon",
+      "Flipkart",
+      "Facebook",
+      "Instagram",
+      "Twitter",
+      "Quora",
+    ],
+    show: false,
+    labels: {
+      show: true,
+      style: {
+        colors: "#A3AED0",
+        fontSize: "14px",
+        fontWeight: "500",
+      },
+    },
+    axisBorder: {
+      show: false,
+    },
+    axisTicks: {
+      show: false,
+    },
+  },
+  yaxis: {
+    show: false,
+    color: "black",
+    labels: {
+      show: false,
+      style: {
+        colors: "#A3AED0",
+        fontSize: "14px",
+        fontWeight: "500",
+      },
+    },
+  },
+
+  grid: {
+    borderColor: "rgba(163, 174, 208, 0.3)",
+    show: true,
+    yaxis: {
+      lines: {
+        show: false,
+        opacity: 0.5,
+      },
+    },
+    row: {
+      opacity: 0.5,
+    },
+    xaxis: {
+      lines: {
+        show: false,
+      },
+    },
+  },
+  fill: {
+    type: "solid",
+    colors: ["#5E37FF", "#6AD2FF", "#E1E9F8"],
+  },
+  legend: {
+    show: false,
+  },
+  colors: ["#5E37FF", "#6AD2FF", "#E1E9F8"],
+  dataLabels: {
+    enabled: false,
+  },
+  plotOptions: {
+    bar: {
+      borderRadius: 10,
+      columnWidth: "20px",
+    },
+  },
+};
+
 export const pieChartOptions = {
   labels: ["Your files", "System", "Empty"],
   colors: ["#4318FF", "#6AD2FF", "#EFF4FB"],
@@ -249,6 +465,85 @@ export const pieChartOptions = {
 
 export const pieChartData = [63, 25, 12];
 
+export const sourceChartData = [10, 10, 10, 10, 10, 10];
+export const sourceChartOptions = {
+  labels: ["Amazon", "Flipkart", "Facebook", "Instagram", "Twitter", "Quora"],
+  colors: ["#4318FF", "#6AD2FF", "#40B5AD", "#0047AB", "#5D3FD3", "#9FE2BF"],
+  chart: {
+    width: "100px",
+  },
+  states: {
+    hover: {
+      filter: {
+        type: "none",
+      },
+    },
+  },
+  legend: {
+    show: false,
+  },
+  dataLabels: {
+    enabled: false,
+  },
+  hover: { mode: null },
+  plotOptions: {
+    donut: {
+      expandOnClick: false,
+      donut: {
+        labels: {
+          show: false,
+        },
+      },
+    },
+  },
+  fill: {
+    colors: ["#4318FF", "#6AD2FF", "#40B5AD", "#0047AB", "#5D3FD3", "#9FE2BF"],
+  },
+  tooltip: {
+    enabled: true,
+    theme: "dark",
+  },
+};
+
+export const sentimentChartData = [5, 20];
+export const sentimentChartOptions = {
+  labels: ["Positive", "Negetive"],
+  colors: ["#4318FF", "#6AD2FF", "#EFF4FB"],
+  chart: {
+    width: "100px",
+  },
+  states: {
+    hover: {
+      filter: {
+        type: "none",
+      },
+    },
+  },
+  legend: {
+    show: false,
+  },
+  dataLabels: {
+    enabled: false,
+  },
+  hover: { mode: null },
+  plotOptions: {
+    donut: {
+      expandOnClick: false,
+      donut: {
+        labels: {
+          show: false,
+        },
+      },
+    },
+  },
+  fill: {
+    colors: ["#4318FF", "#6AD2FF", "#EFF4FB"],
+  },
+  tooltip: {
+    enabled: true,
+    theme: "dark",
+  },
+};
 // Total Spent Default
 
 export const lineChartDataTotalSpent = [

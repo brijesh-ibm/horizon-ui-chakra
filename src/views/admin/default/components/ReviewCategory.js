@@ -11,8 +11,8 @@ import {
   barChartOptionsDailyTraffic,
 } from "variables/charts";
 import {
-  barChartDataConsumption,
-  barChartOptionsConsumption,
+  categorySentimentChartDataConsumption,
+  categorySentimentChartOptionsConsumption,
 } from "variables/charts";
 // Assets
 import { RiArrowUpSFill } from "react-icons/ri";
@@ -32,7 +32,7 @@ export default function ReviewCategory(props) {
             </Text>
           </Flex>
           <Flex align="end">
-            <Text
+            {/* <Text
               color={textColor}
               fontSize="34px"
               fontWeight="700"
@@ -47,7 +47,7 @@ export default function ReviewCategory(props) {
               fontWeight="500"
             >
               Visitors
-            </Text>
+            </Text> */}
           </Flex>
         </Flex>
         <Flex align="center">
@@ -59,8 +59,8 @@ export default function ReviewCategory(props) {
       </Flex>
       <Box h="240px" mt="auto">
         <BarChart
-          chartData={barChartDataConsumption}
-          chartOptions={barChartOptionsConsumption}
+          chartData={categorySentimentChartDataConsumption}
+          chartOptions={categorySentimentChartOptionsConsumption}
         />
       </Box>
     </Card>

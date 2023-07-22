@@ -17,8 +17,8 @@ import {
 } from "variables/charts";
 
 import {
-  barChartDataDailyTraffic,
-  barChartOptionsDailyTraffic,
+  allChartDataConsumption,
+  allChartOptionsConsumption,
 } from "variables/charts";
 import { MdBarChart } from "react-icons/md";
 
@@ -39,17 +39,18 @@ export default function WeeklyRevenue(props) {
   );
   return (
     <Card align="center" direction="column" w="100%" {...rest}>
-      <Flex align="center" w="100%" px="15px" py="10px">
+      <Flex align="lef" w="100%" px="15px" py="10px">
         <Text
+          align={"left"}
           me="auto"
           color={textColor}
           fontSize="2xl"
           fontWeight="700"
           lineHeight="100%"
         >
-          Product Review Ratings
+          Source Sentiment Review
         </Text>
-        <Button
+        {/* <Button
           align="center"
           justifyContent="center"
           bg={bgButton}
@@ -63,13 +64,13 @@ export default function WeeklyRevenue(props) {
           {...rest}
         >
           <Icon as={MdBarChart} color={iconColor} w="24px" h="24px" />
-        </Button>
+        </Button> */}
       </Flex>
 
       <Box h="240px" mt="auto">
         <BarChart
-          chartData={barChartDataDailyTraffic}
-          chartOptions={barChartOptionsDailyTraffic}
+          chartData={allChartDataConsumption}
+          chartOptions={allChartOptionsConsumption}
         />
       </Box>
     </Card>
