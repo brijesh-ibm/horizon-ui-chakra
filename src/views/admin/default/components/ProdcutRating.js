@@ -74,7 +74,7 @@ export default function WeeklyRevenue(props) {
           fontWeight="700"
           lineHeight="100%"
         >
-          Source Sentiment Review
+          Source Wise Sentiment Summary
         </Text>
         {/* <Button
           align="center"
