@@ -624,7 +624,7 @@ export function getSourceHeader() {
   ];
   return sourceHeader;
 }
-export function getSourceData(id) {
+export function getSourceChartData(id) {
   let sourceChartData = [10, 10, 10, 10, 10, 10];
   if (id == 1) {
     sourceChartData = [10, 10, 10, 10, 10, 10];
@@ -635,7 +635,7 @@ export function getSourceData(id) {
   }
   return sourceChartData;
 }
-export const sourceChartOptions = {
+export const getSourceChartOptions = {
   labels: getSourceHeader(),
   colors: ["#4318FF", "#6AD2FF", "#40B5AD", "#0047AB", "#5D3FD3", "#9FE2BF"],
   chart: {
@@ -649,10 +649,10 @@ export const sourceChartOptions = {
     },
   },
   legend: {
-    show: false,
+    show: true,
   },
   dataLabels: {
-    enabled: false,
+    enabled: true,
   },
   hover: { mode: null },
   plotOptions: {

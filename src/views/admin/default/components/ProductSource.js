@@ -3,21 +3,34 @@ import { Box, Flex, Text, Select, useColorModeValue } from "@chakra-ui/react";
 // Custom components
 import Card from "components/card/Card.js";
 import PieChart from "components/charts/PieChart";
+import PieChartFun from "components/charts/PieChartFun";
 import {
   pieChartData,
   pieChartOptions,
   sourceChartData,
   sourceChartOptions,
 } from "variables/charts";
-
+import {
+  getSourceChartData,
+  getSourceChartOptions,
+} from "../../../../data/originalSourceData";
 import { VSeparator } from "components/separator/Separator";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 
 export default function Conversion(props) {
   const { ...rest } = props;
   const { selectedProduct } = props;
+  const [data, setdata] = useState([10, 10, 10, 10, 10, 10]);
+  const [option, setoption] = useState(getSourceChartOptions);
+  const [currentSelection, setcurrentSelection] = useState(1);
+
   useEffect(async () => {
-    alert("Conversation call", selectedProduct);
+    if (currentSelection != selectedProduct) {
+      const sampledata = await getSourceChartData(selectedProduct);
+      setdata(sampledata);
+      setcurrentSelection(selectedProduct);
+      console.log("Conversion", data);
+    }
   });
 
   // Chakra Color Mode
@@ -52,13 +65,8 @@ export default function Conversion(props) {
           <option value="yearly">Yearly</option>
         </Select> */}
       </Flex>
+      <PieChartFun h="70%" w="100%" data={data} option={option} />
 
-      <PieChart
-        h="100%"
-        w="100%"
-        chartData={sourceChartData}
-        chartOptions={sourceChartOptions}
-      />
       <Card
         bg={cardColor}
         flexDirection="row"
