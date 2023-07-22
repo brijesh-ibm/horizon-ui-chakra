@@ -11,10 +11,14 @@ import {
 } from "variables/charts";
 
 import { VSeparator } from "components/separator/Separator";
-import React from "react";
+import React, { useEffect } from "react";
 
 export default function Conversion(props) {
   const { ...rest } = props;
+  const { selectedProduct } = props;
+  useEffect(async () => {
+    alert("Conversation call", selectedProduct);
+  });
 
   // Chakra Color Mode
   const totalReviewFacebook = 10;

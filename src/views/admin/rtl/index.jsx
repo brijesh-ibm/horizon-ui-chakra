@@ -76,9 +76,11 @@ export default function UserReports() {
   const [isSmartWatchClick, setisSmartWatchClick] = useState("lightgray");
   const [isEarbudClick, setisEarbudClick] = useState("transperent");
   const [isSpeakerClick, setisSpeakerClick] = useState("transperent");
+  const [selectedProduct, setselectedProduct] = useState(1);
 
   const clickOnCategoryBox = useCallback(async (param) => {
     //alert(param);
+    setselectedProduct(param);
     if (param == 1) {
       setisSmartWatchClick("lightgray");
       setisEarbudClick("transperent");
@@ -232,7 +234,7 @@ export default function UserReports() {
         <ProdcutRating />
         <Review />
 
-        <ProductSource />
+        <ProductSource selectedProduct={selectedProduct} />
       </SimpleGrid>
       <SimpleGrid columns={{ base: 1, md: 1, xl: 2 }} gap="20px" mb="20px">
         {/* <CheckTable columnsData={columnsDataCheck} tableData={tableDataCheck} /> */}
