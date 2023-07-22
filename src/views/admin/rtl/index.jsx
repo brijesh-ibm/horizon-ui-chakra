@@ -74,6 +74,7 @@ import Summary from "views/admin/profile/components/Summary";
 import {
   getSources,
   getReviewsCountGroupedBySource,
+  getReviewsCountGroupedBySentiment,
   getReviewsCount,
 } from "data/originalSourceData";
 export default function UserReports() {
@@ -88,10 +89,10 @@ export default function UserReports() {
 
   // Chakra Color Mode
   const handleMouseEnter = useCallback(async (param) => {
-    // const d = PrepareLocationList("smartwatch");
+    const d = getReviewsCountGroupedBySentiment("smartwatch");
     // getSources("smartwatch");
     // const d = getReviewsCountGroupedBySource("smartwatch");
-    // console.log("getReviewsCountGroupedBySource", JSON.stringify(d));
+    console.log("getReviewsCountGroupedBySentiment", JSON.stringify(d));
     setselectedProduct(param);
     if (param == 1) {
       setisSmartWatchClick("#bde0ff");

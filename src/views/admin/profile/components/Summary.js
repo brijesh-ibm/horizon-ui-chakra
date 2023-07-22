@@ -22,16 +22,16 @@ export default function Summary(props) {
         setProductName("Smart Watch");
         // setsummary(OriginalSourceData.data[0].Summary);
         // setComment(OriginalSourceData.data[0].user_comments);
-        setnegetiveSentiment(OriginalSourceData.data[0].Summary);
-        setpositiveSentiment(OriginalSourceData.data[1].Summary);
+        setpositiveSentiment(OriginalSourceData.data[0].Summary);
+        // setpositiveSentiment(OriginalSourceData.data[1].Summary);
       } else if (selectedProduct == 2) {
         setProductName("Wireless Earbud");
-        setnegetiveSentiment(OriginalSourceData.data[2].Summary);
-        setpositiveSentiment(OriginalSourceData.data[3].Summary);
+        setpositiveSentiment(OriginalSourceData.data[1].Summary);
+        // setpositiveSentiment(OriginalSourceData.data[3].Summary);
       } else if (selectedProduct == 3) {
         setProductName("Portable Speaker");
-        setnegetiveSentiment(OriginalSourceData.data[4].Summary);
-        setpositiveSentiment(OriginalSourceData.data[5].Summary);
+        setpositiveSentiment(OriginalSourceData.data[2].Summary);
+        // setpositiveSentiment(OriginalSourceData.data[5].Summary);
       }
 
       setcurrentSelection(selectedProduct);
@@ -65,73 +65,24 @@ export default function Summary(props) {
         mb="2px"
         align={"left"}
       >
-        : Positive Sentiment Summary
+        : Sentiment Summary
       </Text>
       <Text
         align={"left"}
         color={textColorSecondary}
-        fontSize="2xl"
+        fontSize="5xl"
         me="26px"
         mb="40px"
         marginLeft={0}
       >
-        {positiveSentiment}
+        {"Product " + positiveSentiment}
         {/* As we live, our hearts turn colder. Cause pain is what we go through as
         we become older. We get insulted by others, lose trust for those others.
         We get back stabbed by friends. It becomes harder for us to give others
         a hand. We get our heart broken by people we love, even that we give
         them all... */}
       </Text>
-      <Text
-        color={textColorPrimary}
-        fontWeight="bold"
-        fontSize="2xl"
-        mt="10px"
-        mb="2px"
-        align={"left"}
-      >
-        : Negetive Sentiment Summary
-      </Text>
-      <Text
-        align={"left"}
-        color={textColorSecondary}
-        fontSize="2xl"
-        me="26px"
-        mb="40px"
-        marginLeft={0}
-      >
-        {negetiveSentiment}
-        {/* As we live, our hearts turn colder. Cause pain is what we go through as
-        we become older. We get insulted by others, lose trust for those others.
-        We get back stabbed by friends. It becomes harder for us to give others
-        a hand. We get our heart broken by people we love, even that we give
-        them all... */}
-      </Text>
-      <Text
-        color={textColorPrimary}
-        fontWeight="bold"
-        fontSize="2xl"
-        mt="10px"
-        mb="2px"
-        align={"left"}
-      >
-        : User Comments
-      </Text>
-      <Text
-        align={"left"}
-        color={textColorSecondary}
-        fontSize="2xl"
-        me="26px"
-        mb="40px"
-        marginLeft={0}
-      >
-        {comment}
-        {/* As we live, our hearts turn colder. Cause pain is what we go through as
-        we become older. We get insulted by others, lose trust for those others.
-        We get back stabbed by friends. It becomes harder for us to give others
-        a hand. We get our heart broken by people we love, even that we give
-        them all... */}
-      </Text>
+
       {/* <SimpleGrid columns="2" gap="20px">
         <Information
           boxShadow={cardShadow}
