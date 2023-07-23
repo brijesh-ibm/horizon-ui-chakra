@@ -34,11 +34,11 @@ export function getCategorySentimentChartDataConsumption(id) {
   let sourceChartData = [
     {
       name: "Positive",
-      data: positiveArray,
+      data: negetiveArray,
     },
     {
       name: "Negetive",
-      data: negetiveArray,
+      data: positiveArray,
     },
   ];
   if (id == 1) {

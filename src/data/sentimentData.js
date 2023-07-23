@@ -1,6 +1,6 @@
 import { getReviewsCountGroupedBySentiment } from "data/originalSourceData";
 function getSentimentHeader() {
-  const sourceHeader = ["Positive", "Negetive"];
+  const sourceHeader = ["Negetive", "Positive"];
   return sourceHeader;
 }
 export function getSentimentChartData(id) {
@@ -22,7 +22,7 @@ export function getSentimentChartData(id) {
 }
 export const getSentimentChartOptions = {
   labels: getSentimentHeader(),
-  colors: ["#4318FF", "#6AD2FF", "#EFF4FB"],
+  colors: ["#6AD2FF", "#4318FF", "#EFF4FB"],
   chart: {
     width: "100px",
   },
@@ -51,7 +51,7 @@ export const getSentimentChartOptions = {
     },
   },
   fill: {
-    colors: ["#4318FF", "#6AD2FF", "#EFF4FB"],
+    colors: ["#6AD2FF", "#4318FF", "#EFF4FB"],
   },
   tooltip: {
     enabled: true,

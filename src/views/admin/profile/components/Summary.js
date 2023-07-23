@@ -22,7 +22,7 @@ export default function Summary(props) {
         setProductName("Smart Watch");
         // setsummary(OriginalSourceData.data[0].Summary);
         // setComment(OriginalSourceData.data[0].user_comments);
-        setpositiveSentiment(OriginalSourceData.data[0].Summary);
+        setpositiveSentiment(OriginalSourceData.data[2].Summary);
         // setpositiveSentiment(OriginalSourceData.data[1].Summary);
       } else if (selectedProduct == 2) {
         setProductName("Wireless Earbud");
@@ -30,7 +30,7 @@ export default function Summary(props) {
         // setpositiveSentiment(OriginalSourceData.data[3].Summary);
       } else if (selectedProduct == 3) {
         setProductName("Portable Speaker");
-        setpositiveSentiment(OriginalSourceData.data[2].Summary);
+        setpositiveSentiment(OriginalSourceData.data[0].Summary);
         // setpositiveSentiment(OriginalSourceData.data[5].Summary);
       }
 
